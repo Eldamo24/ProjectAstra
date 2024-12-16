@@ -9,6 +9,7 @@ public class TPController : MonoBehaviour
     [SerializeField] private Transform playerObj;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private PlayerInputReader playerInputReader;
+    [SerializeField] private AnimatorStateController animController;
 
     private Vector3 inputs;
 
@@ -22,7 +23,7 @@ public class TPController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform checkGround;
 
-
+    public bool IsGrounded { get => isGrounded; set => isGrounded = value; }
 
     private void Start()
     {
@@ -38,9 +39,11 @@ public class TPController : MonoBehaviour
         {
             Jump();
         }
+        else
+        {
+            animController.Anim.ResetTrigger("Jump");
+        }
     }
-
-
 
     private void Movement()
     {
@@ -58,6 +61,7 @@ public class TPController : MonoBehaviour
     private void Jump()
     {
         rb.AddForce(Vector3.up * jumpForce);
+        animController.Anim.SetTrigger("Jump");
     }
 
     private void Grounded()
