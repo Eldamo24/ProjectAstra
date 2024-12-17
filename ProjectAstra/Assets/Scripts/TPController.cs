@@ -29,6 +29,7 @@ public class TPController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        rb.linearDamping = 5f;
     }
 
     private void FixedUpdate()
