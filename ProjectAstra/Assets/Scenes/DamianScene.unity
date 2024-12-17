@@ -1146,6 +1146,10 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 8518468271738130102, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
+      propertyPath: animController
+      value: 
+      objectReference: {fileID: 910797843}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -19,7 +19,7 @@ public class AnimatorStateController : MonoBehaviour
         anim.SetBool("IdleState", idleState);
         velocity = 0f;
         desacceleration = -2f;
-        acceleration = 1f;
+        acceleration = 1.5f;
     }
 
     private void Update()

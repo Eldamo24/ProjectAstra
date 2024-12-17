@@ -14,7 +14,7 @@ public class PlayerInputReader : MonoBehaviour
         jumping = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Movement();
     }

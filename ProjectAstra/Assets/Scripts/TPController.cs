@@ -54,7 +54,9 @@ public class TPController : MonoBehaviour
         if (inputDir != Vector3.zero)
         {
             playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
-            rb.MovePosition(rb.position + inputDir * speedMovement * Time.deltaTime);
+            //rb.MovePosition(rb.position + inputDir * speedMovement * Time.deltaTime);
+            Vector3 moveVelocity = inputDir.normalized * speedMovement;
+            rb.linearVelocity = new Vector3(moveVelocity.x, rb.linearVelocity.y, moveVelocity.z);
         }
     }
 
