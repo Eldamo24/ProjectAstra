@@ -16,7 +16,6 @@ public class AnimatorStateController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         idleState = true;
-        anim.SetBool("IdleState", idleState);
         velocity = 0f;
         desacceleration = -2f;
         acceleration = 1.5f;
