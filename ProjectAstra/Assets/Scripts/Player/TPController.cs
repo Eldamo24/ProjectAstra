@@ -10,6 +10,7 @@ public class TPController : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private PlayerInputReader playerInputReader;
     [SerializeField] private AnimatorStateController animController;
+    [SerializeField] private InteractorRay interactorRay;
 
     private Vector3 inputs;
 
@@ -44,6 +45,10 @@ public class TPController : MonoBehaviour
         {
             animController.Anim.ResetTrigger("Jump");
         }
+        if (interactorRay.CanInteract && playerInputReader.InteractKeyPressed)
+        {
+            Interact();
+        }
     }
 
     private void Movement()
@@ -70,5 +75,14 @@ public class TPController : MonoBehaviour
     private void Grounded()
     {
         isGrounded = Physics.CheckSphere(checkGround.position, 0.2f, groundLayer);
+    }
+
+    private void Interact()
+    {
+        if(!playerInputReader.Interacting)
+        {
+            interactorRay.Hit.collider.gameObject.GetComponent<InteractionTest>().Interaction();
+            playerInputReader.Interacting = true;
+        }
     }
 }

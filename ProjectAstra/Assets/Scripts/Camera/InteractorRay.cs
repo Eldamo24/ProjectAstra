@@ -7,6 +7,9 @@ public class InteractorRay : MonoBehaviour
     private int flag = 0;
     private float maxDistance;
     [SerializeField] private LayerMask interactLayer;
+    private RaycastHit hit;
+    public bool CanInteract { get => canInteract; set => canInteract = value; }
+    public RaycastHit Hit { get => hit; set => hit = value; }
 
     private void Start()
     {
@@ -23,7 +26,6 @@ public class InteractorRay : MonoBehaviour
     {
         Camera cam = Camera.main;
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        RaycastHit hit;
         canInteract = Physics.Raycast(ray, out hit, maxDistance, interactLayer);
         if (canInteract && flag == 0)
         {
