@@ -2294,18 +2294,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_ActionId
       value: e9f2837e-dda4-48d2-a7c5-0354365682cd
       objectReference: {fileID: 0}
     - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionId
+      value: 8e1a7beb-4739-4838-8de2-7e65958cea18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_ActionName
       value: 'Player/Interact[/Keyboard/e]'
       objectReference: {fileID: 0}
     - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionName
+      value: 'Player/Sprint[/Keyboard/leftShift]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
@@ -2313,7 +2325,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1968681808}
+    - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1968681808}
     - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
@@ -2321,15 +2341,31 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Interact
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Sprint
       objectReference: {fileID: 0}
     - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PlayerInputReader, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerInputReader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500385528000989487, guid: 895e549faa8d06b43b39b60201b61706, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8518468271738130102, guid: 895e549faa8d06b43b39b60201b61706, type: 3}

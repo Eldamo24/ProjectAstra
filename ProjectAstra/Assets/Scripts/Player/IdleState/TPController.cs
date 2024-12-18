@@ -17,6 +17,7 @@ public class TPController : MonoBehaviour
     [Header("Speed Variables")]
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float speedMovement;
+    private float speed = 3f;
 
     [Header("Jump References")]
     [SerializeField] private float jumpForce;
@@ -49,6 +50,15 @@ public class TPController : MonoBehaviour
         {
             Interact();
         }
+        if (playerInputReader.Sprinting)
+        {
+            speedMovement = speed * 2;
+        }
+        else
+        {
+            speedMovement = speed;
+        }
+        
     }
 
     private void Movement()

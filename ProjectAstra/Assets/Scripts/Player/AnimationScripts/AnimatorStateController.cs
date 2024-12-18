@@ -39,9 +39,27 @@ public class AnimatorStateController : MonoBehaviour
         }
         else
         {
-            velocity += Time.deltaTime * acceleration;
-            velocity = Mathf.Clamp(velocity, 0f, 1f);
-            anim.SetFloat("Acceleration", velocity);
+            if (inputs.Sprinting)
+            {
+                velocity += Time.deltaTime * acceleration;
+                velocity = Mathf.Clamp(velocity, 0.7f, 1f);
+                anim.SetFloat("Acceleration", velocity);
+            }
+            else
+            {
+                if (velocity > 0.7f)
+                {
+                    velocity += Time.deltaTime * desacceleration;
+                    velocity = Mathf.Clamp(velocity, 0.7f, 1f);
+                    anim.SetFloat("Acceleration", velocity);
+                }
+                else
+                {
+                    velocity += Time.deltaTime * acceleration;
+                    velocity = Mathf.Clamp(velocity, 0f, 0.7f);
+                    anim.SetFloat("Acceleration", velocity);
+                }
+            }
         }
     }    
 }
