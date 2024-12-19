@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,8 @@ public class StateGameController : MonoBehaviour
     [SerializeField] private AnimatorStateController animStateController;
     [SerializeField] private CombatInputReader combatInputReader;
     [SerializeField] private PlayerCombatController playerCombatController;
+    [SerializeField] private GameObject idleCamera;
+    [SerializeField] private GameObject combatCamera;
 
     private void Update()
     {
@@ -30,11 +33,15 @@ public class StateGameController : MonoBehaviour
         playerCombatController.enabled = !playerCombatController.isActiveAndEnabled;
         if (playerInput.currentActionMap.name.Equals("Player"))
         {
+            idleCamera.SetActive(false);
+            combatCamera.SetActive(true);
             playerInput.SwitchCurrentActionMap("Combat");
             animStateController.Anim.runtimeAnimatorController = animStateController.CombatController;
         }
         else
         {
+            idleCamera.SetActive(true);
+            combatCamera.SetActive(false);
             playerInput.SwitchCurrentActionMap("Player");
             animStateController.Anim.runtimeAnimatorController = animStateController.IdleController;
         }

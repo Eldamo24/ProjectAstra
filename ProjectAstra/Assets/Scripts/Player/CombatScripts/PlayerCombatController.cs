@@ -9,7 +9,7 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField] private Transform playerObj;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private CombatInputReader combatInputReader;
-
+    [SerializeField] private Transform combatLookAt;
     private Vector3 inputs;
 
 
@@ -27,12 +27,11 @@ public class PlayerCombatController : MonoBehaviour
         orientation.forward = viewDir.normalized;
         inputs = combatInputReader.MovementVector;
         Vector3 inputDir = orientation.forward * inputs.z + orientation.right * inputs.x;
-        if (inputDir != Vector3.zero)
-        {
-            playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
-            Vector3 moveVelocity = inputDir.normalized * speedMovement;
-            rb.linearVelocity = new Vector3(moveVelocity.x, rb.linearVelocity.y, moveVelocity.z);
-        }
+        Vector3 dirToCombatLookAt = combatLookAt.position - new Vector3(Camera.main.transform.position.x, combatLookAt.position.y, Camera.main.transform.position.z);
+        orientation.forward = dirToCombatLookAt.normalized;
+        playerObj.forward = dirToCombatLookAt.normalized;
+        Vector3 moveVelocity = inputDir.normalized * speedMovement;
+        rb.linearVelocity = new Vector3(moveVelocity.x, rb.linearVelocity.y, moveVelocity.z);
     }
 }
 
