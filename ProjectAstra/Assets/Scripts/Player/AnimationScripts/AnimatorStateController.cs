@@ -1,9 +1,14 @@
+using System;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class AnimatorStateController : MonoBehaviour
 {
     [SerializeField] private PlayerInputReader inputs;
+    [SerializeField] private CombatInputReader combatInputReader;
     [SerializeField] private TPController controller;
+    [SerializeField] private AnimatorController idleController;
+    [SerializeField] private AnimatorController combatController;
     private float velocity;
     private float desacceleration;
     private float acceleration;
@@ -11,6 +16,9 @@ public class AnimatorStateController : MonoBehaviour
     private bool idleState;
 
     public Animator Anim { get => anim; set => anim = value; }
+    public AnimatorController IdleController { get => idleController; set => idleController = value; }
+    public AnimatorController CombatController { get => combatController; set => combatController = value; }
+    public bool IdleState { get => idleState; set => idleState = value; }
 
     private void Start()
     {
@@ -27,7 +35,12 @@ public class AnimatorStateController : MonoBehaviour
         {
             IdleStateAnimations();
         }
+        else
+        {
+            CombatStateController();
+        }
     }
+
 
     private void IdleStateAnimations()
     {
@@ -61,5 +74,13 @@ public class AnimatorStateController : MonoBehaviour
                 }
             }
         }
-    }    
+    }
+
+
+    private void CombatStateController()
+    {
+        Vector3 normalizedVector = combatInputReader.MovementVector.normalized;
+        anim.SetFloat("MoveHorizontal", normalizedVector.x);
+        anim.SetFloat("MoveVertical", normalizedVector.z);
+    }
 }

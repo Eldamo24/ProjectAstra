@@ -6,9 +6,11 @@ public class StateGameController : MonoBehaviour
     [Header("Idle State References")]
     [SerializeField] private TPController controller;
     [SerializeField] private PlayerInputReader inputReader;
-    [SerializeField] private PlayerInput controlIdle;
+    [SerializeField] private PlayerInput playerInput;
     [SerializeField] private InteractorRay interactorRay;
-    [SerializeField] private Animator idleAnimator;
+    [SerializeField] private AnimatorStateController animStateController;
+    [SerializeField] private CombatInputReader combatInputReader;
+    [SerializeField] private PlayerCombatController playerCombatController;
 
     private void Update()
     {
@@ -22,10 +24,19 @@ public class StateGameController : MonoBehaviour
     {
         controller.enabled = !controller.isActiveAndEnabled;
         inputReader.enabled = !inputReader.isActiveAndEnabled;
-        controlIdle.enabled = !controlIdle.isActiveAndEnabled;
         interactorRay.enabled = !interactorRay.isActiveAndEnabled;
-        idleAnimator.enabled = !idleAnimator.isActiveAndEnabled;
+        animStateController.IdleState = !animStateController.IdleState;
+        combatInputReader.enabled = !combatInputReader.isActiveAndEnabled;
+        playerCombatController.enabled = !playerCombatController.isActiveAndEnabled;
+        if (playerInput.currentActionMap.name.Equals("Player"))
+        {
+            playerInput.SwitchCurrentActionMap("Combat");
+            animStateController.Anim.runtimeAnimatorController = animStateController.CombatController;
+        }
+        else
+        {
+            playerInput.SwitchCurrentActionMap("Player");
+            animStateController.Anim.runtimeAnimatorController = animStateController.IdleController;
+        }
     }
-
-
 }
